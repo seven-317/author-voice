@@ -1,0 +1,22 @@
+{
+  "name": "author-voice",
+  "version": "0.1.0",
+  "description": "Agent skill that writes commits, PRs, and issues in the developer's own voice, with a deterministic git-context helper the agent runs to read state and apply commits.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "git-context": "skills/author-voice/scripts/git-context.ts"
+  },
+  "scripts": {
+    "git:staged": "node skills/author-voice/scripts/git-context.ts staged",
+    "git:branch": "node skills/author-voice/scripts/git-context.ts branch",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=23.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
