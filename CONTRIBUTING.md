@@ -3,7 +3,7 @@
 Thanks for extending the skill. This project is two things, and they have
 different quality bars:
 
-1. **Prompt rules** (`SKILL.md`, `.agent-skills/*.md`) — instructions an AI agent
+1. **Prompt rules** (`SKILL.md`, `references/*.md`) — instructions an AI agent
    reads. "Quality" here means the rules are unambiguous, the examples teach by
    contrast, and the output keeps sounding like the developer.
 2. **A deterministic helper** (`scripts/git-context.ts`) — TypeScript that does
@@ -18,7 +18,7 @@ changing the helper.
 ```
 skills/author-voice/                      # the installable skill package
 ├── SKILL.md                              # Router only — no task content
-├── .agent-skills/
+├── references/
 │   ├── 00-developer-persona.md           # Global voice dependency, loaded first
 │   ├── 01-git-commits.md                 # Per-task rule file
 │   ├── 02-pull-requests.md               # Per-task rule file
@@ -85,7 +85,7 @@ npx skills add ./skills/author-voice -g
 Say you want to cover release notes or a changelog. The shape is fixed so the
 router stays predictable:
 
-1. **Create `skills/author-voice/.agent-skills/NN-your-surface.md`.** Number it
+1. **Create `skills/author-voice/references/NN-your-surface.md`.** Number it
    next in sequence (`04-…`). Short, kebab-case, surface-named filename.
 2. **Open with the prerequisite line.** State that the persona is already loaded
    and that this file adds *format* on top of *voice*.

@@ -52,7 +52,7 @@ The skill is a **router plus rule files**, with one deterministic helper script.
 ```
 skills/author-voice/                      # the installable skill package
 ├── SKILL.md                              # Router: global contract + intent table
-├── .agent-skills/
+├── references/
 │   ├── 00-developer-persona.md           # The voice — loaded before every task
 │   ├── 01-git-commits.md                 # Conventional Commits rules + examples
 │   ├── 02-pull-requests.md               # PR structure, Why/What over diff replay
@@ -77,7 +77,7 @@ agent's, governed by the skill, and the Git plumbing is always deterministic.
   `gh pr create` to pull requests, `gh issue create` to issues. It defines the
   global contract every route inherits and a self-check the agent runs before
   returning anything.
-- **`00-developer-persona.md`** is a hard dependency loaded first, every time. It
+- **`references/00-developer-persona.md`** is a hard dependency loaded first, every time. It
   defines *who is speaking* — two allowed voices (first-person `I`/`We`, or bare
   imperative `Fix`/`Add`/`Refactor`) — and a banned-vocabulary list that kills
   assistant tone: `I'll help you`, `I suggest`, `feel free to`,
@@ -173,7 +173,7 @@ bodies need no shell quoting.
   `git log` and `.github/` templates. The repo's existing convention wins; the
   persona applies on top of it.
 - **Small router, extensible rules.** Adding a new surface (a changelog, a
-  release note) means a new `.agent-skills/NN-*.md` file and one row in the
+  release note) means a new `references/NN-*.md` file and one row in the
   router table — not a rewrite.
 
 ## What it covers

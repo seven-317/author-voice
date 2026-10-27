@@ -14,14 +14,14 @@ If a reader can tell that an AI wrote the text, the skill has failed.
 
 This file is a **router**. It contains no task content of its own beyond the
 global contract below. It detects intent and delegates to one rule file. Keep it
-that way: task rules live in `.agent-skills/`, never here.
+that way: task rules live in `references/`, never here.
 
 ---
 
 ## Global contract (applies to every route)
 
 1. **Load the persona first, every time.** Before producing any output under
-   this skill, read `.agent-skills/00-developer-persona.md`. It defines the
+   this skill, read `references/00-developer-persona.md`. It defines the
    voice, the grammatical person, and the banned vocabulary that every route
    inherits. It is a hard dependency, not a suggestion. Do not skip it because a
    task "looks simple."
@@ -53,9 +53,9 @@ with the persona from rule 1.
 
 | If the intent is…                                                                                   | Load                                      |
 | --------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| Writing a commit message; running `git commit`; staging changes and describing them                 | `.agent-skills/01-git-commits.md`         |
-| Opening a pull request; running `gh pr create`; writing or revising a PR title or body              | `.agent-skills/02-pull-requests.md`       |
-| Filing a bug report or feature request; running `gh issue create`; writing or triaging an issue     | `.agent-skills/03-issues-management.md`   |
+| Writing a commit message; running `git commit`; staging changes and describing them                 | `references/01-git-commits.md`            |
+| Opening a pull request; running `gh pr create`; writing or revising a PR title or body              | `references/02-pull-requests.md`          |
+| Filing a bug report or feature request; running `gh issue create`; writing or triaging an issue     | `references/03-issues-management.md`      |
 
 ### Disambiguation
 
@@ -94,7 +94,7 @@ rules — it only feeds them the diff and commits the message you produced.
 
 1. The repository's existing, observable convention (read recent `git log`,
    merged PRs, and `.github/` templates before inventing format).
-2. `.agent-skills/00-developer-persona.md` (voice and banned vocabulary).
+2. `references/00-developer-persona.md` (voice and banned vocabulary).
 3. The task rule file for the active route.
 4. This router.
 
